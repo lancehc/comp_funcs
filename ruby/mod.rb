@@ -50,6 +50,24 @@ def binmod(n,k,mod)
   coef
 end
 
+def get_primes(n)
+  primes = []
+  sieve = [false] * (n+1)
+  p = 2
+  while(p <= n) do
+    if(!sieve[p])
+      i = p*p
+      while(i <= n) do
+        sieve[i] = true
+        i += p
+      end
+      primes << p
+    end
+    p += 1
+  end
+  primes
+end
+
 def powmod(x,pow,mod)
   result = 1
   while(pow > 0)
